@@ -29,7 +29,12 @@
 	
 }
 
-.jumbotron h1, h2{
+.jumbotron h1{
+	color:$white;
+	letter-spacing: -1px;
+}
+
+.jumbotron h2{
 	color:$white;
 	letter-spacing: -1px;
 }
