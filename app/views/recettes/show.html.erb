@@ -1,19 +1,12 @@
-<h2 align="center">Détails de la recette</h2>
+<h3 align="center"><small>Détails de la recette</small></h3>
 <hr>
+<div class="row"> 
+<div class="media col-xs-4 mx-auto d-block">
+  <%= image_tag("olgcover_image.jpg",alt:"test image",class:"mr-3  d-flex align-self-center img-thumbnail") %>
+<div class="media-body">
+<h4 class="badge badge-success"><%= @recette.nomR7.upcase %></h4>
+<p class="card-text description "><%= simple_format(@recette.description) %></p>
+</div>
+</div>
 
-<div class="card-deck text-center">	
-  <div class="card card-outline-warning">
-  	<div class="card-header">
-
-  	<h3 class="badge badge-success"><%= @recette.nomR7.upcase %></h3>
-    
-  </div>
-    <img class="card-img-top" src="..." alt="Card image cap" height="100" width="50" >
-    <div class="card-block">
-      <p class="card-text description"><%= simple_format(@recette.description) %></p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted ">Créer depuis <%= time_ago_in_words @recette.created_at %> par : <%= @recette.chef.nomChef.upcase%>  <%= link_to gravatar_for(@recette.chef), recettes_path %></small>
-    </div>
-  </div>
 </div>
