@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'recettes/index'
 
-  get 'recettes/show'
+  #get 'recettes/show'
 
   get 'recettes/new'
 
@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "pages/home", to: "pages#home"
   root "pages#index"
-  get '/recettes', to: 'recettes#index'
+  #get '/recettes', to: 'recettes#index'
+  resources :recettes
 end

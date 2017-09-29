@@ -10,13 +10,19 @@
   	<div class="card-header">
     <%= r.id %>
   </div>
-    <img class="card-img-top" src="..." alt="Card image cap" height="256" width="180" >
     <div class="card-block">
-      <h4 class="card-title"><%= r.nomR7 %></h4>
-      <p class="card-text"><%= truncate r.description, lenght:150%></p>
+      
+          
+          
+            <h4 class="card-title"><%= link_to r.nomR7, recette_path(r) %></h4>
+            <p class="card-text"><%= truncate r.description, lenght:150%></p>
+          
+          
     </div>
-    <div class="card-footer">
-      <small class="text-muted">Créer depuis <%= time_ago_in_words r.created_at %></small>
+    <div class="card-footer text-center">
+      <small class="text-muted">Créer depuis <%= time_ago_in_words r.created_at %>
+        Par : <%= r.chef.nomChef.upcase %>    <%= gravatar_for(r.chef, {size:40}) %>
+      </small>
     </div>
   </div>		
 <%end%>

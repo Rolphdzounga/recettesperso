@@ -6,34 +6,19 @@ class RecettesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get recettes_show_url
-    assert_response :success
-  end
-
   test "should get new" do
     get recettes_new_url
     assert_response :success
   end
 
-  test "should get create" do
-    get recettes_create_url
-    assert_response :success
-  end
+
 
   test "should get edit" do
     get recettes_edit_url
     assert_response :success
   end
 
-  test "should get update" do
-    get recettes_update_url
-    assert_response :success
-  end
 
-  test "should get delete" do
-    get recettes_delete_url
-    assert_response :success
-  end
+
 
 end

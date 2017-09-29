@@ -53,3 +53,28 @@
 	border-top: 2px solid #eaeaea;
 	color:#777;
 }
+
+.description{
+	margin-top:0;
+}
+
+.card a{
+	color:#552e86 !important ;
+}
+
+.form-group{
+	margin-top:20px;
+}
+
+.form-horizontal{
+//	border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.col,.d-flex, .p-2 { 
+//padding-top: .75rem;
+//padding-bottom: .75rem;
+background-color: rgba(86,61,124,.15);
+border: 1px solid rgba(86,61,124,.2);
+}
+//.col { flex: 1 0 50%; }
+
+body { padding-top: 50px; }
