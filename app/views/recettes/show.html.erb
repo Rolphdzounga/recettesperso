@@ -1,12 +1,32 @@
-<h3 align="center"><small>Détails de la recette</small></h3>
-<hr>
-<div class="row"> 
-<div class="media col-xs-4 mx-auto d-block">
-  <%= image_tag("olgcover_image.jpg",alt:"test image",class:"mr-3  d-flex align-self-center img-thumbnail") %>
-<div class="media-body">
-<h4 class="badge badge-success"><%= @recette.nomR7.upcase %></h4>
-<p class="card-text description "><%= simple_format(@recette.description) %></p>
-</div>
+<%= render 'partage/titre',titre:"Détails de la recette" %>
+
+<div class="row "> 
+<div class="container text-center">
+
+
+		<div class="container ">
+				<%= image_tag("olgcover_image.jpg",alt:"test image",class:"mr-3 align-self-start img-thumbnail",size:"220x200")  %>
+			<div class="media-body ">
+				<div class="media-body">
+					
+					<kbd><kbd><%= @recette.nomR7.upcase %></kbd></kbd>	
+					<p class="text-left"><%= simple_format(@recette.description) %></p>	
+				</div>
+
+			</div>	
+		</div>
+
+		<div class="container ">
+			<%= link_to edit_recette_path(@recette),class: "btn btn-success btn-sm" do %>
+			  <strong >Modifier</strong> 
+			<% end %>
+
+			<%= link_to recette_path(@recette),method:"delete",data:{confirm:"Etes vous sur de vouloir supprimer cette recette?"},class: "btn btn-danger btn-sm ml-3" do %>
+			  <strong >Supprimer</strong> 
+			<% end %>
+		</div>		
+
+	
 </div>
 
 </div>

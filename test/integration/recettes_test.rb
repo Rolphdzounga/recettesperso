@@ -19,6 +19,8 @@ class RecettesTest < ActionDispatch::IntegrationTest
 		assert_select "a[href=?]",recette_path(@recette1), text: @recette1.nomR7
 		#assert_match @recette2.nomR7, response.body
 		assert_select "a[href=?]",recette_path(@recette2), text: @recette2.nomR7
+
+		
 	end
 
 	test "Afficher show page" do
@@ -27,7 +29,9 @@ class RecettesTest < ActionDispatch::IntegrationTest
 		assert_template 'recettes/show'
 		assert_match @recette2.nomR7.upcase, response.body		
 		assert_match @recette2.description, response.body
-		assert_match @user.nomChef, response.body
+		#assert_match @user.nomChef, response.body
+		assert_select "a[href=?]",edit_recette_path(@recette2), text: "Modifier"
+		assert_select "a[href=?]",recette_path(@recette2), text: "Supprimer"
 	end
 
 	test "Valid page new recette" do

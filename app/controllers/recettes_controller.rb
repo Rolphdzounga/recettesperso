@@ -24,12 +24,23 @@ class RecettesController < ApplicationController
   end
 
   def edit
+    @recette = Recette.find(params[:id]) 
   end
 
   def update
+    @recette = Recette.find(params[:id]) 
+    if @recette.update(params_recette)
+      flash[:success] = "La recette a été enregistée avec succès!!!"
+      redirect_to recette_path @recette
+    else
+      render 'edit'
+    end
   end
 
-  def delete
+  def destroy
+    Recette.find(params[:id]).destroy
+    flash[:success]="Recette supprimée..."
+    redirect_to recettes_path
   end
 
   private
