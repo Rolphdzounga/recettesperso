@@ -1,0 +1,18 @@
+BEGIN TRANSACTION;
+
+INSERT INTO "chefs" VALUES(1,'john','rolphfrancel@gmail.com','2017-09-12 01:35:49.635685','2017-09-17 23:50:02.192121');
+INSERT INTO "chefs" VALUES(2,'bob','bob@yahoo.fr','2017-09-12 01:36:03.976121','2017-09-12 01:36:03.976121');
+INSERT INTO "recettes" VALUES(1,'poisson à lodika','poisson + odika + oignon..',1,'2017-09-12 01:45:02.508032','2017-09-17 23:57:57.964093');
+INSERT INTO "recettes" VALUES(2,'le nyembouè','nois de palme...',2,'2017-09-12 01:46:07.575134','2017-09-12 01:46:07.575134');
+INSERT INTO "recettes" VALUES(4,'Flash Message Testing','Flash success
+flash danger',1,'2017-09-29 09:29:20.226067','2017-09-29 09:29:20.226067');
+INSERT INTO "recettes" VALUES(6,'Flash Message Testing 2','Flash Message Testing 2
+Flash Message Testing 2
+Flash Message Testing 2',1,'2017-09-29 09:34:31.369096','2017-09-29 09:34:31.369096');
+INSERT INTO "recettes" VALUES(8,'Flash Message Testing 1','Flash Message Testing 1
+Flash Message Testing 1',1,'2017-09-29 10:04:14.135197','2017-09-29 10:04:14.135197');
+INSERT INTO "recettes" VALUES(9,'Recette de test 2','Recette de test 2
+Recette de test 2
+Recette de test 2',1,'2017-09-29 10:06:07.545208','2017-09-29 10:06:07.545208');
+
+COMMIT;

@@ -1,27 +1,40 @@
+<div class="row">
 <%= render 'partage/titre',titre:"Linsting des Recettes" %>
-
-
-<div class="card-deck text-center">
-<% @recettes.each do |r| %>
-	
-  <div class="card card-outline-warning">
-  	<div class="card-header">
-    <%= r.id %>
-  </div>
-    <div class="card-block">
-      
-          
-          
-            <h4 class="card-title"><%= link_to r.nomR7, recette_path(r) %></h4>
-            <p class="card-text"><%= truncate r.description, lenght:150%></p>
-          
-          
-    </div>
-    <div class="card-footer text-center">
-      <small class="text-muted">Créer depuis <%= time_ago_in_words r.created_at %>
-        Par : <%= r.chef.nomChef.upcase %>    <%= gravatar_for(r.chef, {size:40}) %>
-      </small>
-    </div>
-  </div>		
-<%end%>
 </div>
+
+
+  <div class="row">
+
+
+<% @recettes.each do |r| %>
+
+<div class="col-md-4 mt-2 "  >
+
+<div class="row">
+   <div class="col-xs-2 mr-3 mt-2">
+      <%= gravatar_for(r.chef, {size:35}) %>
+    </div>
+    <div class="col-xs-10 card card-inverse" style="background-color: #eff0f1; border-color: #eff0f1;">
+      <div class="card-block">
+            <h4 class="card-title"><small><%= link_to r.nomR7, recette_path(r) %></small>  </h4>
+      </div>
+
+      <div class="card-text">
+
+        <%= simple_format((truncate r.description, lenght:200),class: 'mb-0') %> 
+        <small class="text-muted">  Créer depuis <%= time_ago_in_words r.created_at %> par
+                <%= r.chef.nomChef.upcase %></small>
+      </div>
+      <div class="text-muted mt-0">
+              
+      </div>
+    </div>
+</div>
+
+</div>
+<%end%>
+
+
+
+  </div>
+
