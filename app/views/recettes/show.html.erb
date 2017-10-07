@@ -24,6 +24,8 @@
 			<%= link_to recette_path(@recette),method:"delete",data:{confirm:"Etes vous sur de vouloir supprimer cette recette?"},class: "btn btn-danger btn-sm ml-3" do %>
 			  <strong >Supprimer</strong> 
 			<% end %>
+
+			<%= link_to  sanitize("<strong >Liste des Recettes</strong>"), recettes_path,class: "btn btn-primary btn-sm ml-3" %>
 		</div>		
 
 	

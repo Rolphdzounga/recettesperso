@@ -1,68 +1,6 @@
 <%= render 'partage/titre',titre:"Ajouter une nouvelle recette" %>
 
-<div class="container row">
-	<div class="col-xs-4 mx-auto d-block">
-<% if @recette.errors.any? %>
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-<button type="button" class="close float-left" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <p class="badge badge-danger">
-<%= pluralize @recette.errors.count, "erreur" %>
-	empeche la creation de cette <%= @recette.class %></p>
-	<ul class="list-group pr-0">	
-
-		<% @recette.errors.messages.each do |n,msg| %>
-			<% msg.each do |e| #msg est un tableau %>
-				<li class="list-group-item">
-					<%= e %>
-
-				</li>
-			<%end%>	
-		<%end%>	
-
-
-	</ul>
-	</div>
-</div>
-<%end%>
-
-
-
-</div>
-<div class="container">
-	<div class="col-md-12">
-		<%= form_for @recette,:html => {class:"form-horizontal",role:"form"} do |f| %>
-			
-			<div class="form-group">
-				<div class="row">
-					<div class="col-md-2 control-label">
-						<%= f.label :"Nom de la recette" %>
-					</div>
-					<div class="col-md-8">
-						<%= f.text_field :nomR7,class:"form-control" ,placeholder:"Nom de la recette", autofocus: false %>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-group">
-				<div class="row">
-					<div class="col-md-2">
-						<%= f.label :description,class:"control-label" %>
-					</div>
-					<div class="col-md-8" >
-						<%= f.text_area :description,class:"form-control",placeholder:'Veuillez décrire votre recette' %>
-					</div>						
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<div class="col-md-3 ml-md-auto">
-					<%= f.submit "Valider" , class:"btn  btn-success" %>
-				</div>
-			</div>
-		<%end%>		
-	</div>	
-</div>
-
-
+<%= render 'recettes/form' %>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner" role="listbox">
@@ -174,7 +112,7 @@ Click Me
 </div>
 </div>
 
-<nav class="navbar navbar-expand-xs fixed-top  navbar-dark bg-dark" style="background: yellowgreen;">
+<nav class="navbar navbar-expand-xs  navbar-dark bg-dark" style="background: yellowgreen;">
 	<button class="navbar-toggler" data-toggle="collapse" data-target="#nc">
 		<span class="navbar-toggler-icon"></span>
 	</button>

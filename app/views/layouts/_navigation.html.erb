@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #552e86 !important;">
+<nav class="navbar navbar-expand-lg fixed-top  navbar-dark bg-dark" style="background-color: #552e86 !important;">
 
   <%= link_to "RecettesPerso", root_path,class:"navbar-brand", id:"logo" %>
 
@@ -18,10 +18,14 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown link
+          Recette
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
+          
+              
+          
+          
+          <%= link_to "Ajouter",new_recette_path, class:"dropdown-item" %>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>

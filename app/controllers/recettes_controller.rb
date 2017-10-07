@@ -1,10 +1,11 @@
 class RecettesController < ApplicationController
+  before_action :init_recette, only: [:show,:edit,:update]
   def index
     @recettes = Recette.all
   end
 
   def show
-    @recette = Recette.find params[:id]
+    
   end
 
   def new
@@ -24,11 +25,11 @@ class RecettesController < ApplicationController
   end
 
   def edit
-    @recette = Recette.find(params[:id]) 
+     
   end
 
   def update
-    @recette = Recette.find(params[:id]) 
+     
     if @recette.update(params_recette)
       flash[:success] = "La recette a été enregistée avec succès!!!"
       redirect_to recette_path @recette
@@ -44,6 +45,10 @@ class RecettesController < ApplicationController
   end
 
   private
+
+    def init_recette
+      @recette = Recette.find(params[:id])
+    end
     def params_recette
        params.require(:recette).permit(:nomR7,:description)
     end

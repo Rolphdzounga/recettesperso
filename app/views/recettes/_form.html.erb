@@ -1,0 +1,41 @@
+
+<%= render 'partage/erreurs', obj:@recette %>
+
+
+<div class="container">
+	<div class="col-md-12">
+		<%= form_for @recette,:html => {class:"form-horizontal",role:"form"} do |f| %>
+			
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-2 control-label">
+						<%= f.label :"Nom de la recette" %>
+					</div>
+					<div class="col-md-8">
+						<%= f.text_field :nomR7,class:"form-control" ,placeholder:"Nom de la recette", autofocus: false %>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-2">
+						<%= f.label :description,class:"control-label" %>
+					</div>
+					<div class="col-md-8" >
+						<%= f.text_area :description,class:"form-control",placeholder:'Veuillez décrire votre recette' %>
+					</div>						
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<div class="col-md-3 ml-md-auto">
+					<%= f.submit "Valider" , class:"btn  btn-success" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= link_to  sanitize("<strong >Liste des Recettes</strong>"), recettes_path,class: "btn btn-primary btn-sm ml-3" %>
+			</div>
+		<%end%>		
+	</div>	
+</div>
