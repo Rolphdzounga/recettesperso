@@ -12,7 +12,7 @@ class PagesTest < ActionDispatch::IntegrationTest
 		assert_response :success
 	end
 	test "new_pages_url existe" do
-		get pages_new_url
+		get new_page_url
 		assert_response :success
 	end
 end

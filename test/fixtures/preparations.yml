@@ -1,0 +1,8 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ingredient: one
+  recette: one
+two:
+  ingredient: two
+  recette: two

@@ -1,34 +1,74 @@
 <%= render 'partage/titre',titre:"Détails de la recette" %>
 
-<div class="row "> 
-<div class="container text-center">
 
 
-		<div class="container ">
-				<%= image_tag("olgcover_image.jpg",alt:"test image",class:"mr-3 align-self-start img-thumbnail",size:"220x200")  %>
-			<div class="media-body ">
-				<div class="media-body">
-					
-					<kbd><kbd><%= @recette.nomR7.upcase %></kbd></kbd>	
-					<p class="text-left"><%= simple_format(@recette.description) %></p>	
-				</div>
-
-			</div>	
-		</div>
-
-		<div class="container ">
-			<%= link_to edit_recette_path(@recette),class: "btn btn-success btn-sm" do %>
-			  <strong >Modifier</strong> 
-			<% end %>
-
-			<%= link_to recette_path(@recette),method:"delete",data:{confirm:"Etes vous sur de vouloir supprimer cette recette?"},class: "btn btn-danger btn-sm ml-3" do %>
-			  <strong >Supprimer</strong> 
-			<% end %>
-
-			<%= link_to  sanitize("<strong >Liste des Recettes</strong>"), recettes_path,class: "btn btn-primary btn-sm ml-3" %>
-		</div>		
-
+<div class="container ">
+  <div class="row justify-content-center">
+	<div class="col-8">
 	
-</div>
+		<%= render 'actions' %>	
+	
 
-</div>
+		<%= render 'recette2' %>
+
+		<%#= render 'commentaires/commentaires'  %>
+<% if @commentaires.size != 0 %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Prior commentaires: </h3>
+        <div id="messages">
+          <%= render 'commentaires/commentaires', commentaires: @commentaires %>
+        </div>
+    </div>
+  </div>
+
+<% else %>
+
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>No commentaires Yet!</h3>
+    </div>
+  </div>
+
+<% end %>
+
+
+		<%= render 'liste' %>
+
+	</div>
+
+
+  </div>
+
+
+<% if logged_in? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <h3>Comments: </h3>
+      <hr />
+      <%= form_for([@recette, @commentaire], :html => {class: "form-horizontal", 
+                                                role: "form"}) do |f| %>
+        <div class="form-group">
+          <div class="control-label col-md-2">
+            <%= f.label :description, "Commentaire" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_area :commentairetexte, rows: 8, class: "form-control", 
+                                      placeholder: "Enter Comment Here" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <%= f.submit "Submit Comment", 
+                              class: "btn btn-primary btn-lg btn-xlarge" %>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+    </div>
+  </div>
+<% end %>
+
+
+</div>		

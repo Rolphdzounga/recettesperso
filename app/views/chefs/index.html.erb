@@ -1,0 +1,39 @@
+<%= render 'partage/titre', titre:"Listing des Chefs" %>
+
+<div class="container">
+<div class="row justify-content-end">
+  <div class="col-4 "><%= will_paginate %></div>
+</div>
+</div>
+<div align="center">
+  <table class="table table-striped">
+      <% @chefs.each do |chef| %>
+              <tr>
+                <td class="align-middle"><%= link_to gravatar_for(chef), chef_path(chef) %></td>
+                <td class="align-middle"><h5 ><%= link_to chef.chefnom.capitalize, 
+                                             chef_path(chef) %></h5></td>
+                <td class="align-middle"><small>
+                  <% if chef.recettes.count != 0 %>
+                    <h5 align="center"><%= pluralize(chef.recettes.count, "recette") %></h5>
+                  
+                  <% else %>
+                     <h5 align="center">N'a pas encore de recette!</h5>
+                <% end %>
+                </small></td>
+
+<% if logged_in? and current_chef.admin? && !chef.admin %>
+
+          
+                <td class="align-middle"><%= link_to "Delete this chef", chef_path(chef), 
+              method: :delete, 
+                data: {confirm: "Are you sure you want to delete this chef and all associated recipes?"} %>
+                  </td>
+  <%else%>
+    <td></td>
+  <% end %> 
+              </tr>     
+      <% end %>
+    </table> 
+</div>
+
+

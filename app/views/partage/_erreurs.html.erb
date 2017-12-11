@@ -4,7 +4,7 @@
 <div class="alert alert-danger alert-dismissible fade show" role="alert">
 <button type="button" class="close float-left" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button> <p class="badge badge-danger">
 <%= pluralize obj.errors.count, "erreur" %>
-	empeche la creation de cette <%= obj.class %></p>
+	empeche la creation de <%= obj.class %></p>
 	<ul class="list-group pr-0">	
 
 		<% obj.errors.messages.each do |n,msg| %>

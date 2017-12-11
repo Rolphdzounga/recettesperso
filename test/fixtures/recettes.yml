@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nomR7: MyString
-  description: MyText
+  recettenom: MyString
+  recettedesc: MyText
   chef: one
 
 two:
-  nomR7: MyString
-  description: MyText
+  recettenom: MyString
+  recettedesc: MyText
   chef: two

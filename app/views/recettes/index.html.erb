@@ -1,40 +1,16 @@
 <div class="row">
 <%= render 'partage/titre',titre:"Listing des Recettes" %>
 </div>
+<div class="row">
+  <div class="container">
+  		<div class="float-right"><%= will_paginate(@recettes,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font",:outer_window => 1,:inner_window => 0, :style => 'color:green',:link_separator  => "  " ) %></div>
+ </div>
+</div>
 
-
-  <div class="row">
-
-
-<% @recettes.each do |r| %>
-
-<div class="col-md-4 mt-2 "  >
+<%= render 'recette', obj:@recettes%>
 
 <div class="row">
-   <div class="col-xs-2 mr-3 mt-2">
-      <%= gravatar_for(r.chef, {size:35}) %>
-    </div>
-    <div class="col-xs-10 card card-inverse" style="background-color: #eff0f1; border-color: #eff0f1;">
-      <div class="card-block">
-            <h4 class="card-title"><small><%= link_to r.nomR7, recette_path(r) %></small>  </h4>
-      </div>
-
-      <div class="card-text">
-
-        <%= simple_format((truncate r.description, lenght:200),class: 'mb-0') %> 
-        <small class="text-muted">  Créer depuis <%= time_ago_in_words r.created_at %> par
-                <%= r.chef.nomChef.upcase %></small>
-      </div>
-      <div class="text-muted mt-0">
-              
-      </div>
-    </div>
-</div>
-
-</div>
-<%end%>
-
-
-
+  <div class="container">
+  		<div class="mx-auto d-block"><%= will_paginate(@recettes,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font",:outer_window => 1,:inner_window => 0, :style => 'color:green',:link_separator  => "  " ) %></div>
   </div>
-
+</div>

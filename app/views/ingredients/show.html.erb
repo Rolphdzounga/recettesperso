@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nom ing:</strong>
+  <%= @ingredient.ingredientnom %>
+</p>
+
+<%= link_to 'Edit', edit_ingredient_path(@ingredient) %> |
+<%= link_to 'Back', ingredients_path %>
+
+<%= render 'partage/titre', titre: "#{@ingredient.ingredientnom}" %>
+<% if @ingredient.recettes.count != 0 %>
+  <h4 align="center">Recipe's containing <%= @ingredient.ingredientnom %></h4>
+  <div align="center">
+    <%= will_paginate @ingredient_recipes %>
+  </div>
+  <%= render 'recettes/recette', obj: @ingredient_recettes %>
+  <div align="center">
+    <%= will_paginate(@ingredient_recettes,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font",:outer_window => 1,:inner_window => 0, :style => 'color:pink') %>
+  </div>
+<% else %>
+  <h4 align="center">No recettes yet!</h4>
+<% end %>
+
+

@@ -1,0 +1,20 @@
+
+<div class="row justify-content-center">
+
+    <%= render 'partage/titre', titre:"Ajouter un ingrédient" %>
+
+</div>
+
+<div class="row justify-content-center">
+
+    <%= render 'form', ingredient: @ingredient %>
+
+</div>
+
+
+
+<div class="row justify-content-center">
+	<%= link_to  sanitize("<strong >Liste des ingredients</strong>"), ingredients_path %>
+</div>
+
+

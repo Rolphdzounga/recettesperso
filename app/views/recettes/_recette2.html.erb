@@ -1,0 +1,15 @@
+		<div class="media">
+		  <div class="media-body">
+		    <h5 class="mt-0 mb-1"><%= @recette.recettenom.upcase %></h5>
+		    <%= simple_format(@recette.recettedesc) %>
+			<span class="quiet">
+		    <small >Créé depuis <%= time_ago_in_words(@recette.created_at) %>  par 	<%= @recette.chef.chefnom.capitalize %>  | 
+              <%= pluralize(@recette.commentaires.count, 'commentaire')%></small></span>	
+
+		    <% if @recette.ingredients.any? %>
+						    <p>Ingredients: <%= render @recette.ingredients %></p>
+			<% end %>
+		  </div>
+		  
+		  <%= image_tag("olgcover_image.jpg",alt:"test image",class:"d-flex ml-3 img-thumbnail",size:"220x200")  %>
+		</div>

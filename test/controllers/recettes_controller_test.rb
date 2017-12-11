@@ -1,7 +1,7 @@
-require 'test_helper'
+# require 'test_helper'
 
-class RecettesControllerTest < ActionDispatch::IntegrationTest
+# class RecettesControllerTest < ActionDispatch::IntegrationTest
 
 
 
-end
+# end

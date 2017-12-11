@@ -1,0 +1,62 @@
+<%= render 'partage/erreurs', obj:@chef %>
+
+
+<div class="container">
+	<div class="col-md-12">
+		<%= form_for @chef,:html => {class:"form-horizontal",role:"form"} do |f| %>
+			
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-2 control-label ">
+						<%= f.label :"Nom du chef",class:"control-label float-right mt-2"%>
+					</div>
+					<div class="col-md-8">
+						<%= f.text_field :chefnom,class:"form-control" ,placeholder:"Veuillez saisir le nom du chef", autofocus: false %>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-2 ">
+						<%= f.label :Email,class:"control-label float-right mt-2" %>
+					</div>
+					<div class="col-md-8" >
+						<%= f.email_field :chefemail,class:"form-control",placeholder:'Veuillez saisir votre email' %>
+					</div>						
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-md-2 ">
+						<%= f.label :password,class:"control-label float-right mt-2" %>
+					</div>
+					<div class="col-md-8" >
+						<%= f.password_field :password,class:"form-control",placeholder:'Veuillez saisir votre mot de passe' %>
+					</div>						
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="row">
+					<div class="col-sm-2 ">
+						<%= f.label :"confirmation",class:"control-label float-right mt-2" %>
+					</div>
+					<div class="col-sm-8" >
+						<%= f.password_field :password_confirmation,class:"form-control",placeholder:'Veuillez saisir à nouveau le de passe' %>
+					</div>						
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-3 ml-md-auto">
+					<%= f.submit "Valider" , class:"btn  btn-success" %>
+				</div>
+			</div>
+			<div class="form-group">
+				<%= link_to  sanitize("<strong >Liste des Recettes</strong>"), recettes_path,class: "ml-3" %>
+			</div>
+		<%end%>		
+	</div>	
+</div>

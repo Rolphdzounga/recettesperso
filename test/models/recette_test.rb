@@ -5,30 +5,30 @@ class RecetteTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @recipe = Recette.new(nomR7: "vegetable", description: "great vegetable recipe")  
+    @recipe = Recette.new(recettenom: "vegetable", recettedesc: "great vegetable recipe")  
   end
   
   test "recipe should be valid" do
     assert_not @recipe.valid?
   end  
   
-  test "nomR7 should be present" do
-    @recipe.nomR7 = " "
+  test "recettenom should be present" do
+    @recipe.recettenom = " "
     assert_not @recipe.valid?
   end
   
-  test "description should be present" do
-    @recipe.description = " "
+  test "recettedesc should be present" do
+    @recipe.recettedesc = " "
     assert_not @recipe.valid?
   end
   
-  test "description shouldn't be less than 5 characters" do
-    @recipe.description = "a" * 3
+  test "recettedesc shouldn't be less than 5 characters" do
+    @recipe.recettedesc = "a" * 3
     assert_not @recipe.valid?
   end
   
-  test "description shouldn't be more than 500 characters" do
-    @recipe.description = "a" * 501
+  test "recettedesc shouldn't be more than 500 characters" do
+    @recipe.recettedesc = "a" * 501
     assert_not @recipe.valid?
   end
 

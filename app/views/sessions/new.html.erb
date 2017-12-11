@@ -1,0 +1,37 @@
+<%= render 'partage/titre', titre: "log in" %>
+<%= form_for(:session, :html => {class: "form-horizontal", 
+                        role: "form"}, url: login_path) do |f| %>
+  <div class="form-group row">
+    <div class="control-label col-sm-2 ">
+        <%= f.label :email %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.email_field :chefemail, class: "form-control", 
+                            placeholder: "Enter your email" %>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="control-label col-sm-2 ">
+        <%= f.label :password %>
+    </div>
+    <div class="col-sm-8">
+      <%= f.password_field :password, class: "form-control", 
+                          placeholder: "Enter your password" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-offset-2 col-sm-10">
+    <%= f.submit "Log in", class: 'btn btn-primary btn-lg btn-xlarge' %>
+    </div>
+  </div>
+<% end %>
+<div class="col-sm-4 col-sm-offset-4 colormatch">
+  [ <%= link_to "Cancel request and return to recipes listing", 
+                                                    recettes_path %> ]
+</div>
+
+<div class="center colormatch">
+  [ <%= link_to "Don't have an account? Sign up now!", signup_path %> ]
+</div>

@@ -1,0 +1,24 @@
+<%= render 'partage/titre', titre:"Profile de #{@chef.chefnom}" %>
+
+<div class="row container">
+	<div class="col-sm-12" align="center">
+		<%= link_to (gravatar_for @chef,size:75),chef_path(@chef) %>
+		
+	</div>
+	<div class="col-sm-12" align="center"><h4 >les recettes de <%= @chef.chefnom.upcase%></h4></div>
+	
+</div>
+
+
+<% if @chef.recettes.count != 0 %>
+<%= render 'recettes/recette', obj:@chef_recettes %>
+
+<div class="row container" align="center">
+ 
+  		<div class="col-sm-12" align="center"> <span><%= will_paginate(@chef_recettes,:previous_label => "&laquo;", :next_label => "&raquo;",:class=>"small-font",:outer_window => 1,:inner_window => 0, :style => 'color:green',:link_separator  => "  " ) %></span>  </div>
+
+</div>
+
+<% else %>
+  <h4 align="center">No recettes yet!</h4>
+<% end %>

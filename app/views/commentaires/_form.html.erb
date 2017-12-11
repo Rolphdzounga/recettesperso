@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="col-md-12">
+    
+<%= form_with(model: commentaire, local: true) do |form| %>
+  <% if commentaire.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(commentaire.errors.count, "error") %> prohibited this commentaire from being saved:</h2>
+
+      <ul>
+      <% commentaire.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-2"><%= form.label :commentaire %></div>
+    <div class="col-md-8"><%= form.text_area :commentairetexte, id: :commentaire_desc_com,class:"form-control" ,placeholder:"Saisir votre commentaire" %></div>
+    
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= form.label :chef %></div>
+    <div class="col-md-8"><%= form.text_field :chef, id: :commentaire_chef,class:"form-control" %></div>
+    
+    
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"><%= form.label :recette %></div>
+    <div class="col-md-8"><%= form.text_field :recette, id: :commentaire_recette,class:"form-control" %></div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "envoyer" %>
+  </div>
+<% end %>
+
+  </div>
+</div>
+
+

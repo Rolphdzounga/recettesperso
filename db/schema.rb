@@ -10,22 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909003241) do
+ActiveRecord::Schema.define(version: 20171208234739) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "chefs", force: :cascade do |t|
-    t.string "nomChef"
-    t.string "email"
+    t.string "chefnom"
+    t.string "chefemail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.boolean "admin", default: false
+  end
+
+  create_table "commentaires", force: :cascade do |t|
+    t.text "commentairetexte"
+    t.integer "chef_id"
+    t.integer "recette_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "ingredients", force: :cascade do |t|
+    t.string "ingredientnom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "preparations", force: :cascade do |t|
+    t.bigint "ingredient_id"
+    t.bigint "recette_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient_id"], name: "index_preparations_on_ingredient_id"
+    t.index ["recette_id"], name: "index_preparations_on_recette_id"
+  end
+
   create_table "recettes", force: :cascade do |t|
-    t.string "nomR7"
-    t.text "description"
-    t.integer "chef_id"
+    t.string "recettenom"
+    t.text "recettedesc"
+    t.bigint "chef_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["chef_id"], name: "index_recettes_on_chef_id"
   end
 
+  add_foreign_key "recettes", "chefs"
 end

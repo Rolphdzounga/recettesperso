@@ -6,13 +6,27 @@
 	<div class="col-md-12">
 		<%= form_for @recette,:html => {class:"form-horizontal",role:"form"} do |f| %>
 			
+
+<div class="form-group">
+  <div class="row justify-content-center ">
+    <div class="col-md-8 ">
+      <%= f.collection_check_boxes :ingredient_ids, 
+                                    Ingredient.all, :id, :ingredientnom do |cb| %>
+<% cb.label(class: "checkbox-inline input_checkbox float-left") {cb.check_box(class: "checkbox") + cb.text} %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
 			<div class="form-group">
 				<div class="row">
 					<div class="col-md-2 control-label">
 						<%= f.label :"Nom de la recette" %>
 					</div>
-					<div class="col-md-8">
-						<%= f.text_field :nomR7,class:"form-control" ,placeholder:"Nom de la recette", autofocus: false %>
+					<div class="col-md-8 ">
+						<%= f.text_field :recettenom,class:"form-control" ,placeholder:"Nom de la recette", autofocus: false %>
 					</div>
 				</div>
 			</div>
@@ -23,7 +37,7 @@
 						<%= f.label :description,class:"control-label" %>
 					</div>
 					<div class="col-md-8" >
-						<%= f.text_area :description,class:"form-control",placeholder:'Veuillez décrire votre recette' %>
+						<%= f.text_area :recettedesc,class:"form-control",placeholder:'Veuillez décrire votre recette' %>
 					</div>						
 				</div>
 			</div>
