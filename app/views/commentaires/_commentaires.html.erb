@@ -1,9 +1,22 @@
-<div align="center">
-  <%= will_paginate commentaires %>
-</div>
-<% commentaires.each do |commentaire| %>
-  <%= render('commentaires/commentaire', commentaire: commentaire) %>
-<% end %>
-<div align="center">
-  <%= will_paginate commentaires %>
-</div>
+
+	
+
+	<% commentaires.each do |commentaire| %>
+  		<%#= render('commentaires/commentaire', commentaire: commentaire) %>
+
+		<div class="media">
+		  <div class="media-body">
+		    <h5 class="mt-0 mb-1"><%#= @recette.recettenom.upcase %></h5>
+		    <%= commentaire.commentairetexte %>
+			<span class="quiet">
+		    <small >Créé depuis <%= time_ago_in_words(commentaire.created_at) %>  par 	<%= commentaire.chef.chefnom.capitalize %>  </small></span>	
+
+		  </div>
+		  
+		  <%= gravatar_for(commentaire.chef, size: 60) %>
+		</div>
+
+	<% end %>
+	
+
+

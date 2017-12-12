@@ -7,10 +7,10 @@ class RecettesController < ApplicationController
   end
 
   def show
-    @chef_recettes = @recette
-    @commentaires = @recette.commentaires
+    # @chef_recettes = @recette
+    
     @commentaire = Commentaire.new
-    @commentaires = @recette.commentaires.paginate(page: params[:page], per_page: 5)
+    @commentaires = @recette.commentaires.paginate(page: params[:page], per_page: 2)
   end
 
   def new

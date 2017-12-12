@@ -1,0 +1,26 @@
+<div class="container ">
+  <div class="row justify-content-center">
+  <div class="col-8">
+      <hr />
+      <%= form_for([@recette, @commentaire], :html => {class: "form-horizontal", role: "form"}) do |f| %>
+        <div class="form-group">
+          <div class="control-label col-md-2">
+            <%= f.label :description, "Commentaire" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.text_area :commentairetexte, rows: 5, class: "form-control", 
+                                      placeholder: "Enter Comment Here" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-offset-2 col-md-10">
+            <%= f.submit "Submit Comment", 
+                              class: "btn btn-primary btn-lg btn-xlarge" %>
+          </div>
+        </div>
+      <% end %>
+      <hr />
+
+  </div>
+  </div>
+</div>
