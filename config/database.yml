@@ -42,9 +42,3 @@ test:
   username: recette
   password: recette
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: recette_production
-  username: recette
-  password: recette
